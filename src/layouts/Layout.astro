@@ -1,0 +1,51 @@
+---
+import "@fontsource/roboto-condensed"
+import "@fontsource/roboto-mono"
+import "@fontsource/rubik"
+
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header class="pt-10">
+			<nav>
+				<ul class="flex gap-4 justify-center font-mono">
+					<li><a href="https://github.com/Timchenko99?tab=repositories" target="_blank">Projects</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#education">Education</a></li>
+				</ul>
+			</nav>
+		</header>
+		<slot />
+	</body>
+</html>
+<style>
+	:root {
+		--color-text: hsl(214, 16%, 64%);
+		--color-bg: hsl(240, 8%, 9%);
+	}
+
+	html {
+		color: var(--color-text);
+		background-color: var(--color-bg);
+	}
+
+	:global(code) {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+</style>
